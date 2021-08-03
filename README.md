@@ -93,3 +93,6 @@ Resource: [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https:/
             
         - Code First: 
             you must alter the database by changing your classes
+            
+Resource: [Dependency injection in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1)
+Reference for Design Patterns: [Architectural principles](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion)
