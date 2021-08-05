@@ -98,3 +98,14 @@ Resource: [Dependency injection in ASP.NET Core](https://docs.microsoft.com/en-u
 Reference for Design Patterns: [Architectural principles](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion)
 
 [Lambda expressions (C# reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
+
+[readonly (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly)
+
+[IEnumerable<T> Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-5.0)
+    
+### Bootstrap v4.6*
+Tables:
+[Documentation and examples for opt-in styling of tables (given their prevalent use in JavaScript plugins) with Bootstrap.](https://getbootstrap.com/docs/4.6/content/tables/)
+
+Buttons:
+[Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.](https://getbootstrap.com/docs/4.6/components/buttons/)
