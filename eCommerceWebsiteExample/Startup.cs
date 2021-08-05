@@ -16,7 +16,6 @@ namespace eCommerceWebsiteExample
 {
     public class Startup
     {
-        private object options;
 
         public Startup(IConfiguration configuration)
         {
