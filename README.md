@@ -51,7 +51,7 @@ Resource: [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https:/
         
 *LINQ - **L**anguage **IN**tegrated **Q**uery:*
         
-        - Query language built inot C#
+        - Query language built into C#
         - Compile time checking
         - Like SQL queries
         - LINQ can be used for:
