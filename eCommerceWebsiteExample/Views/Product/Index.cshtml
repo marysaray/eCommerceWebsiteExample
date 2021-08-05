@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Product Catalog";
+}
+
+<h1>Product Catalog</h1>
+
+@*print out all products title*@
+
+@foreach (Product p in Model) /*each element will be a single product*/
+{
+    <p>@p.Title</p> // get all products from database, send to view, print titles
+} 
