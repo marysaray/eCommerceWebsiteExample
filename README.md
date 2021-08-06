@@ -1,5 +1,12 @@
+[![.NET CI](https://github.com/marysaray/eCommerceWebsiteExample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/marysaray/eCommerceWebsiteExample/actions/workflows/dotnet.yml)
+
 # eCommerce Website Example
 Building a dynamic website while integrating a professional process to implement Front-End and Back-End development.
+
+## Prerequisites
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/visual-studio-sdks)
+- [Visual Studio](https://visualstudio.microsoft.com/) with ASP.NET and Web Dev workload
+OR [Visual Studio Code](https://code.visualstudio.com/)
 
 ### IBM Cloud Education: [Resource](https://www.ibm.com/cloud/learn/continuous-integration#:~:text=The%20following%20are%20a%20few%20of%20the%20most,other%20parts%20of%20the%20software%20More%20items...%20)
 
