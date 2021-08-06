@@ -4,7 +4,9 @@
 }
 
 <h1>Product Catalog</h1>
-
+<p>
+    @TempData["Message"]
+</p>
 <div class="table-responsive">
     <table class="table table-hover table-striped table-dark">
         <thead>
@@ -18,17 +20,20 @@
         </thead>
         <tbody>
             @foreach (Product p in Model) // get all products from database, send to view, print details
-            { 
-            <tr>
-                <td>@p.Title</td>
-                <td>@Html.DisplayFor(m => p.Price)</td>
-                <td>@p.Category</td>
-                <td>
-                    <a class="btn btn-warning">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
+            {
+                <tr>
+                    <td>@p.Title</td>
+                    <td>@Html.DisplayFor(m => p.Price)</td>
+                    <td>@p.Category</td>
+                    <td>
+                        <a class="btn btn-warning">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
+
+    <a asp-controller="Product" asp-action="Add">Add Product</a>
+
 </div>
