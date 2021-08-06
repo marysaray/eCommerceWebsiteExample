@@ -29,5 +29,32 @@ namespace eCommerceWebsiteExample.Controllers
             // Send list of all products to view and display
             return View(products); // takes an object to display
         }
+
+        [HttpGet] // link to URL
+        public IActionResult Add() // talks to the database
+        {
+            return View();
+        }
+
+        [HttpPost] // after submission
+        public IActionResult Add(Product p)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add to DB
+                _context.Products.Add(p);
+                // goes into the database
+                _context.SaveChanges(); // executes
+
+                // populate succcess message
+                TempData["Message"] = $"{p.ProductID}:{p.Title} was added successfully!";
+
+                // redirect back to catalog page
+                return RedirectToAction("Index"); 
+            }
+
+            // if not valid return same view with error messages
+            return View();
+        }
     }
 }
