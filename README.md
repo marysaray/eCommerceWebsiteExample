@@ -22,8 +22,8 @@ OR [Visual Studio Code](https://code.visualstudio.com/)
         integrate the new code they've written more frequently throughout the development cycle, 
         adding it to the code base at least once a day.
         Automated testing is done against each iteration of the build to identify integration issues earlier, 
-        when they are easier to fix , which also helps avoid problems at the final merge for the release. Overall,
-        continuous integration helps streamline the build process,
+        when they are easier to fix , which also helps avoid problems at the final merge for the release. 
+        Overall, continuous integration helps streamline the build process,
         resulting in higher-quality software and more predictable delivery schedules.
 
 *Default Pull-Request Workflow**
