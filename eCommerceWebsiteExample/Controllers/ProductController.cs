@@ -1,6 +1,7 @@
 ﻿using eCommerceWebsiteExample.Data;
 using eCommerceWebsiteExample.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace eCommerceWebsiteExample.Controllers
         /// Displays a view that list all products
         /// </summary>
         /// <returns></returns>
-        public IActionResult Index()
+        public async Task<IActionResult> DisplayProducts()
         {
             // Get all products from database
-            List<Product> products = _context.Products.ToList(); // gets all products from the database
+            List<Product> products =
+                await (from p in _context.Products 
+                       select p).ToListAsync(); // gets all products from the database
 
             // Send list of all products to view and display
             return View(products); // takes an object to display
