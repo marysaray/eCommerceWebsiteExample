@@ -22,7 +22,7 @@ namespace eCommerceWebsiteExample.Controllers
         /// Displays a view that list all products
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> DisplayProducts()
+        public async Task<IActionResult> Index()
         {
             // Get all products from database
             List<Product> products =
