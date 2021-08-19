@@ -60,5 +60,27 @@ namespace eCommerceWebsiteExample.Controllers
             // if not valid return same view with error messages
             return View();
         }
+
+        /// <summary>
+        /// Edits a specific product selected
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Edit(int id)
+        {
+            // Get product with corresponding id
+            Product p =
+            await (from prod in _context.Products
+                   where prod.ProductID == id
+                   select prod).SingleAsync();
+            // This is a method syntax
+            //Product p2 =
+            //   await _context
+            //        .Products
+            //        .Where(prod => prod.ProductID == id)
+            //        .SingleAsync();
+
+            // pass product to view
+            return View(p);
+        }
     }
 }
