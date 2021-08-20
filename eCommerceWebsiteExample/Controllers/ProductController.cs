@@ -65,6 +65,7 @@ namespace eCommerceWebsiteExample.Controllers
         /// Edits a specific product selected
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             // Get product with corresponding id
@@ -80,6 +81,19 @@ namespace eCommerceWebsiteExample.Controllers
             //        .SingleAsync();
 
             // pass product to view
+            return View(p);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Product p)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(p).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                ViewData["Message"] = "Product updated successfully!";
+            }
             return View(p);
         }
     }
