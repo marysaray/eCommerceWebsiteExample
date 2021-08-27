@@ -2,6 +2,7 @@
 
 namespace eCommerceWebsiteExample.Migrations
 {
+    // Associated with EntityFramework to create database through code
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
