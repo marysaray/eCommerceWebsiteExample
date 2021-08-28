@@ -29,8 +29,16 @@ namespace eCommerceWebsiteExample.Controllers
 
             // Another syntax: null-coalescing operator https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator
             // int pageNum = id ?? 1;
+            ViewData["CurrentPage"] = pageNum;
 
-            // Get all products from database
+            int numProducts = await (from p in _context.Products // get the amount of products
+                                     select p).CountAsync();
+
+            int totalPages = (int)Math.Ceiling((double)numProducts / PageSize);
+
+            ViewData["MaxPage"] = totalPages;
+
+            // Get 3 products from database
             List<Product> products =
                 await (from p in _context.Products
                        orderby p.Title ascending
