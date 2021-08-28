@@ -19,15 +19,33 @@ namespace eCommerceWebsiteExample.Controllers
             _context = context;    
         }
         /// <summary>
-        /// Displays a view that list all products
+        /// Displays a view that list a page of products
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id) // nullable id
         {
-            // Get all products from database
+            int pageNum = id.HasValue ? id.Value : 1; // ternary operator
+            const int PageSize = 3;
+
+            // Another syntax: null-coalescing operator https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator
+            // int pageNum = id ?? 1;
+            ViewData["CurrentPage"] = pageNum;
+
+            int numProducts = await (from p in _context.Products // get the amount of products
+                                     select p).CountAsync();
+
+            int totalPages = (int)Math.Ceiling((double)numProducts / PageSize);
+
+            ViewData["MaxPage"] = totalPages;
+
+            // Get 3 products from database
             List<Product> products =
-                await (from p in _context.Products 
-                       select p).ToListAsync(); // gets all products from the database
+                await (from p in _context.Products
+                       orderby p.Title ascending
+                       select p)
+                       .Skip(PageSize * (pageNum - 1)) // skip first
+                       .Take(PageSize) // take second
+                       .ToListAsync(); // gets all products from the database
 
             // Send list of all products to view and display
             return View(products); // takes an object to display

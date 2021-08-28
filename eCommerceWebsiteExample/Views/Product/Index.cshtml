@@ -5,15 +5,16 @@
 
 <h1>Product Catalog</h1>
 @* Bootstrap alert feature  *@
-@if (TempData["Message"] != null) {
+@if (TempData["Message"] != null)
+{
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         @TempData["Message"]
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-       </button>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 }
-
+<a asp-controller="Product" asp-action="Add">Add Product</a>
 <div class="table-responsive">
     <table class="table table-hover table-striped table-dark">
         <thead>
@@ -40,7 +41,26 @@
             }
         </tbody>
     </table>
-
-    <a asp-controller="Product" asp-action="Add">Add Product</a>
-
 </div>
+@* Pring page numbers *@
+<ul class="pagination">
+    @for (int i = 1; i <= (int)ViewData["MaxPage"]; i++)
+    {
+        if (i == (int)ViewData["CurrentPage"])
+        {
+            <li class="page-item active">
+                <a class="page-link" asp-action="Index" asp-route-id="@i">
+                    @i
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-id="@i">
+                    @i
+                </a>
+            </li>
+        }
+    }
+</ul>
