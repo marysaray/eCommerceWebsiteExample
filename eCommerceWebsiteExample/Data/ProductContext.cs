@@ -16,5 +16,7 @@ namespace eCommerceWebsiteExample.Data
         }
 
         public DbSet<Product> Products { get; set; } // creates table : plural of the class
+
+        public DbSet<UserAccount> UserAccounts { get; set; }
     }
 }
