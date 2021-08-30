@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - eCommerceWebsiteExample</title>
+    <title>@ViewData["Title"]</title>
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -29,6 +29,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-controller="User" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="User" asp-action="SignIn">Sign In</a>
                         </li>
                     </ul>
                 </div>
