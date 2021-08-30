@@ -48,5 +48,20 @@ namespace eCommerceWebsiteExample.Data
 
             return p;
         }
+
+        public static async Task<Product> GetProductAsync(ProductContext _context, int prodId)
+        {
+            // Get product from the database 
+            Product p = await (from products in _context.Products
+                               where products.ProductID == prodId
+                               select products).SingleAsync();
+            return p;
+
+            // This is a method syntax
+            //Product p2 = await _context
+            //        .Products
+            //        .Where(prod => prod.ProductID == id)
+            //        .SingleAsync();
+        }
     }
 }
