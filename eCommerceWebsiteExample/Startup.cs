@@ -33,6 +33,16 @@ namespace eCommerceWebsiteExample
             services.AddDbContext<ProductContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddHttpContextAccessor();
+
             // ALTERNATIVE SYNTAX: create a method instead of using the lambda expression: another way of calling a method
             // services.AddDbContext<ProductContext>(AddSqlServer);
         }
@@ -63,6 +73,9 @@ namespace eCommerceWebsiteExample
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Resource: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0
+            app.UseSession(); // UseSession should be between UseRouting and UseEndpoints
 
             app.UseEndpoints(endpoints =>
             {
