@@ -77,19 +77,8 @@ namespace eCommerceWebsiteExample.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            // Get product with corresponding id
-            Product p =
-            await (from prod in _context.Products
-                   where prod.ProductID == id
-                   select prod).SingleAsync();
-            // This is a method syntax
-            //Product p2 =
-            //   await _context
-            //        .Products
-            //        .Where(prod => prod.ProductID == id)
-            //        .SingleAsync();
 
-            // pass product to view
+            Product p = await ProductDb.GetProductAsync(_context, id);
             return View(p);
         }
 
@@ -109,9 +98,7 @@ namespace eCommerceWebsiteExample.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            Product p = await (from prod in _context.Products
-                         where prod.ProductID == id
-                         select prod).SingleAsync();
+            Product p = await ProductDb.GetProductAsync(_context, id);
             return View(p);
         }
 
@@ -119,9 +106,8 @@ namespace eCommerceWebsiteExample.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Product p = await (from prod in _context.Products
-                               where prod.ProductID == id
-                               select prod).SingleAsync();
+            Product p = await ProductDb.GetProductAsync(_context, id);
+
             _context.Entry(p).State = EntityState.Deleted;
             await _context.SaveChangesAsync();
             TempData["Message"] = $"{p.Title} was deleted.";
