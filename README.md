@@ -91,18 +91,20 @@ Resource: [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https:/
             * and more..
 *Query Syntax vs. Method Syntax:*
     
-    Query Syntax:
-        
+     Query Syntax: 
+  ```csharp      
         List<Student> stuList = ( from student in studentDB
                                   where student.FirstName == "Mary"
                                   select student).ToList();
+  ```
                                   
-    Method Syntax:
-    
+     Method Syntax: 
+  ```csharp
         List<Student> stuList = studentDB 
                                 .Students
-                                .Where(s=>s.FirstName=="Mary")
-                                .ToList()
+                                .Where(s => s.FirstName == "Mary")
+                                .ToList();
+  ```
 *Development Approaches:*
 
     Code First:
