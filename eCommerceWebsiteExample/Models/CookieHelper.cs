@@ -50,7 +50,8 @@ namespace eCommerceWebsiteExample.Models
 
         public static int GetTotalCartProducts(IHttpContextAccessor http)
         {
-            throw new NotImplementedException();
+            List<Product> cartProducts = GetCartProducts(http);
+            return cartProducts.Count;
         }
     }
 }
