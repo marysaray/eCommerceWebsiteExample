@@ -32,6 +32,8 @@ namespace eCommerceWebsiteExample.Controllers
             Product p = await ProductDb.GetProductAsync(_context, id);
 
             CookieHelper.AddProductToCart(_httpContext, p);
+
+            TempData["Message"] = p.Title + " added succesfully!";
             
             // Redirect back to previous page
             return RedirectToAction("Index", "Product");
