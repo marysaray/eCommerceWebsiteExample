@@ -2,9 +2,15 @@
 
 namespace eCommerceWebsiteExample.Migrations
 {
-    // Associated with EntityFramework to create database through code
+    /// <summary>
+    /// Associated with EntityFramework to create database through code
+    /// </summary>
     public partial class Initial : Migration
     {
+        /// <summary>
+        ///  Access to change data type through code migration
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -23,6 +29,10 @@ namespace eCommerceWebsiteExample.Migrations
                 });
         }
 
+        /// <summary>
+        /// Access to delete table through code migration
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
