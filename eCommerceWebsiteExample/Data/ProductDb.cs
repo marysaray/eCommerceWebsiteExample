@@ -39,6 +39,12 @@ namespace eCommerceWebsiteExample.Data
             return products;
         }
 
+        /// <summary>
+        /// Add product to database
+        /// </summary>
+        /// <param name="_context"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static async Task<Product> AddProductAsync(ProductContext _context, Product p)
         {
             // Add to DB
@@ -49,6 +55,12 @@ namespace eCommerceWebsiteExample.Data
             return p;
         }
 
+        /// <summary>
+        /// Gets a specific product from the database
+        /// </summary>
+        /// <param name="_context"></param>
+        /// <param name="prodId"></param>
+        /// <returns></returns>
         public static async Task<Product> GetProductAsync(ProductContext _context, int prodId)
         {
             // Get product from the database 
