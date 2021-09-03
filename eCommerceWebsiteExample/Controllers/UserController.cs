@@ -10,21 +10,34 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Controllers
 {
+    /// <summary>
+    /// The user controller for the website
+    /// </summary>
     public class UserController : Controller
     {
         // field
-        private readonly ProductContext _context;
-        // constructor
+        private readonly ProductContext _context; // not accessible anywhere else
+
+        // constructor injection: inject services DbContext
         public UserController(ProductContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// The user registration page URL link
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Register()
         {
             return View();
         }
 
+        /// <summary>
+        /// Add registration after submission
+        /// </summary>
+        /// <param name="reg"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel reg)
         {
@@ -76,6 +89,10 @@ namespace eCommerceWebsiteExample.Controllers
             return View(reg);
         }
 
+        /// <summary>
+        /// The log in page for the user URL link
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult SignIn()
         {
@@ -88,6 +105,11 @@ namespace eCommerceWebsiteExample.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Validating user's credentials
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> SignIn(LoginViewModel model)
         {
@@ -126,12 +148,20 @@ namespace eCommerceWebsiteExample.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Log user into the website
+        /// </summary>
+        /// <param name="accountId"></param>
         private void LogUserIn(int accountId)
         {
             // Log user into website
             HttpContext.Session.SetInt32("UserId", accountId);
         }
 
+        /// <summary>
+        /// Destroy session after logging out
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Logout()
         {
             // Destroy the session
