@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Models
 {
+    /// <summary>
+    /// Model to help with current website session storage
+    /// </summary>
     public static class CookieHelper
     {
         const string CartCookie = "CartCookie";
@@ -31,6 +34,11 @@ namespace eCommerceWebsiteExample.Models
             return cartProducts;
         }
 
+        /// <summary>
+        /// Keeps product added in the cart if user logs out
+        /// </summary>
+        /// <param name="http"></param>
+        /// <param name="p"></param>
         public static void AddProductToCart(IHttpContextAccessor http, Product p)
         {
             List<Product> cartProducts = GetCartProducts(http);
@@ -48,6 +56,11 @@ namespace eCommerceWebsiteExample.Models
             http.HttpContext.Response.Cookies.Append(CartCookie, data, options);
         }
 
+        /// <summary>
+        /// Counts all the product added in the cart
+        /// </summary>
+        /// <param name="http"></param>
+        /// <returns></returns>
         public static int GetTotalCartProducts(IHttpContextAccessor http)
         {
             List<Product> cartProducts = GetCartProducts(http);

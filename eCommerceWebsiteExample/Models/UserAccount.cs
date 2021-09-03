@@ -6,20 +6,38 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Models
 {
+    /// <summary>
+    /// Associated with an individual's account
+    /// </summary>
     public class UserAccount
     {
         [Key] // primary key: using attached
         public int UserId { get; set; }
 
+        /// <summary>
+        /// The email of the user
+        /// </summary>
         public string Email { get; set; }
 
+        /// <summary>
+        /// The username of the user
+        /// </summary>
         public string Username { get; set; }
 
+        /// <summary>
+        /// The user's password
+        /// </summary>
         public string Password { get; set; }
 
+        /// <summary>
+        /// Optional date of birth when registering
+        /// </summary>
         public DateTime? DateOfBirth { get; set; } // ?: optional
     }
 
+    /// <summary>
+    /// The registration form with data annotation validation
+    /// </summary>
     public class RegisterViewModel
     { 
         [Required]
@@ -50,6 +68,10 @@ namespace eCommerceWebsiteExample.Models
         public DateTime? DateOfBirth { get; set; }
     }
 
+    /// <summary>
+    /// The user login form
+    /// with data annotation validation
+    /// </summary>
     public class LoginViewModel
     { 
         [Required]
