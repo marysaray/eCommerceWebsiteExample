@@ -11,7 +11,9 @@ namespace eCommerceWebsiteExample.Models
     /// </summary>
     public class Product
     {
-        [Key]   // PRIMARY KEY in database
+        // properties
+
+        [Key] // PRIMARY KEY in database
         public int ProductID { get; set; }
 
         /// <summary>

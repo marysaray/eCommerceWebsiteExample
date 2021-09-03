@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Controllers
 {
+    /// <summary>
+    /// Cart controller for the purchasing of products
+    /// </summary>
     public class CartController : Controller
     {
+        // fields
         private readonly ProductContext _context;
         private readonly IHttpContextAccessor _httpContext;
 
+        // constructor injection: inject services DbContext
         public CartController(ProductContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
@@ -39,6 +44,10 @@ namespace eCommerceWebsiteExample.Controllers
             return Redirect(prevUrl);
         }
 
+        /// <summary>
+        /// Display list of items added to the cart
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Summary()
         {
             List<Product> cartProducts = CookieHelper.GetCartProducts(_httpContext);

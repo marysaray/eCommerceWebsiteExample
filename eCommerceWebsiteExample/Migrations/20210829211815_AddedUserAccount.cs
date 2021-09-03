@@ -3,8 +3,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eCommerceWebsiteExample.Migrations
 {
+    /// <summary>
+    ///  Associated with EntityFramework to create database through code
+    /// </summary>
     public partial class AddedUserAccount : Migration
     {
+        /// <summary>
+        /// Access to change data type through code migration
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -24,6 +31,10 @@ namespace eCommerceWebsiteExample.Migrations
                 });
         }
 
+        /// <summary>
+        /// Access to delete table through code migration
+        /// </summary>
+        /// <param name="migrationBuilder"></param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Controllers
 {
+    /// <summary>
+    /// The default controller for the website
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,16 +21,28 @@ namespace eCommerceWebsiteExample.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Home page URL link
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Privacy page URL link
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// The default error page for website
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
