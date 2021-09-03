@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace eCommerceWebsiteExample.Controllers
 {
+    /// <summary>
+    /// The controller for the product page 
+    /// </summary>
     public class ProductController : Controller
     {
+        // field
         private readonly ProductContext _context; // not accessible anywhere else
 
         // constructor injection: inject services DbContext
@@ -18,6 +22,7 @@ namespace eCommerceWebsiteExample.Controllers
         {
             _context = context;    
         }
+
         /// <summary>
         /// Displays a view that list a page of products
         /// </summary>
@@ -45,6 +50,11 @@ namespace eCommerceWebsiteExample.Controllers
             return View(products); // takes an object to display
         }
 
+        #region TODO: need to refactor all database logic into separate file/class.
+        /// <summary>
+        /// Add a specific product
+        /// </summary>
+        /// <returns></returns>
         [HttpGet] // link to URL
         public IActionResult Add() // talks to the database
         {
@@ -82,6 +92,12 @@ namespace eCommerceWebsiteExample.Controllers
             return View(p);
         }
 
+        /// <summary>
+        /// Edits a specific product selected
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Edit(Product p)
         {
@@ -95,6 +111,11 @@ namespace eCommerceWebsiteExample.Controllers
             return View(p);
         }
 
+        /// <summary>
+        /// Deletes a specific product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -102,6 +123,11 @@ namespace eCommerceWebsiteExample.Controllers
             return View(p);
         }
 
+        /// <summary>
+        /// Delete product with message of confirmation
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -113,5 +139,7 @@ namespace eCommerceWebsiteExample.Controllers
             TempData["Message"] = $"{p.Title} was deleted.";
             return RedirectToAction("Index");
         }
+
+        #endregion
     }
 }
